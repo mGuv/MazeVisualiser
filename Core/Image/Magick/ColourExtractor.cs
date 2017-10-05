@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ImageMagick;
+﻿using ImageMagick;
 
 namespace Core.Image.Magick
 {
