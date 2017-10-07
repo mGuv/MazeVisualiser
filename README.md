@@ -16,6 +16,8 @@ It'll then output the order of pixels it expanded to the command window.
 ## Direction
 - Comment everything
 - Massively tidy up the image output code
+- Tidy up the images created as currently it leaves behind a trail of images on disk
+- Make it run in isolated folders to avoid file name collision with successive runs
 - Allow customisable start locations
 - Allow customisable colour gradients
 - Allow different path finding (currently hard coding to Dijkstra's)
