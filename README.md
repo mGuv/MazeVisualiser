@@ -13,3 +13,11 @@ Currently very hacked together as I've worked on it for 2 hours and was lazy wit
 
 It'll then output the order of pixels it expanded to the command window.
 
+## Direction
+- Comment everything
+- Massively tidy up the image output code
+- Allow customisable start locations
+- Allow customisable colour gradients
+- Allow different path finding (currently hard coding to Dijkstra's)
+- Unit tests
+
