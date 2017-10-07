@@ -13,8 +13,17 @@ namespace Core.Image.Magick
             
             List<byte[]> colors = new List<byte[]>();
             colors.Add(new byte[3]{255, 0, 0});
+            colors.Add(new byte[3]{255, 127, 0});
+            colors.Add(new byte[3]{255, 255, 0});
+            colors.Add(new byte[3]{127, 255, 0});
             colors.Add(new byte[3]{0, 255, 0});
+            colors.Add(new byte[3]{0, 255, 127});
+            colors.Add(new byte[3]{0, 255, 255});
+            colors.Add(new byte[3]{0, 127, 255});
             colors.Add(new byte[3]{0, 0, 255});
+            colors.Add(new byte[3]{127, 0, 255});
+            colors.Add(new byte[3]{255, 0, 255});
+            colors.Add(new byte[3]{255, 0, 127});
             
             
             Gradient gradient = new Gradient(colors);
