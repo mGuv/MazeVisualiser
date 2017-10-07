@@ -28,10 +28,9 @@ namespace Core
             Solver solver = new Solver();
             Coordinate[] output = solver.Expand(factory.Create(inputFile), new Coordinate(0, 0));
 
-            foreach (Coordinate coordinate in output)
-            {
-                Console.WriteLine("(" + coordinate.X + ", " + coordinate.Y + ")");
-            }
+            Visualiser visualiser = new Visualiser();
+            string outputGif = visualiser.CreateGif(inputFile, output, 10, 10);
+            Console.WriteLine("yo there's a gif at: " + outputGif);
         }
     }
 }
