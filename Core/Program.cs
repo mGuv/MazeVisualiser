@@ -23,7 +23,7 @@ namespace Core
                 new Coordinate(-1, 0)
             };
             
-            MapFactory factory = new MapFactory(new TextureFactory(new ColourExtractor()), blackList, neighbours);
+            MapFactory factory = new MapFactory(new ColourExtractor(), blackList, neighbours);
             
             Solver solver = new Solver();
             Coordinate[] output = solver.Expand(factory.Create(inputFile), new Coordinate(0, 0));

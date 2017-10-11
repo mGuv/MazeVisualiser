@@ -4,35 +4,35 @@ namespace Core.Image
 {
     public class MapFactory
     {
-        private readonly TextureFactory textureFactory;
+        private readonly IColorExtractor colorExtractor;
         private readonly HashSet<Color> blackList;
         private readonly Coordinate[] neighbours;
 
-        public MapFactory(TextureFactory textureFactory, HashSet<Color> blackList, Coordinate[] neighbours)
+        public MapFactory(IColorExtractor colorExtractor, HashSet<Color> blackList, Coordinate[] neighbours)
         {
-            this.textureFactory = textureFactory;
+            this.colorExtractor = colorExtractor;
             this.blackList = blackList;
             this.neighbours = neighbours;
         }
         
         public Map Create(string fileName)
         {
-            Texture texture = this.textureFactory.Create(fileName);
-            HashSet<Coordinate> traversable = this.createTraversable(texture);
+            Color[,] colors = this.colorExtractor.FromImage(fileName);
+            HashSet<Coordinate> traversable = this.createTraversable(colors);
             
             return new Map(traversable, this.neighbours);
 
         }
 
-        private HashSet<Coordinate> createTraversable(Texture texture)
+        private HashSet<Coordinate> createTraversable(Color[,] colors)
         {
             HashSet<Coordinate> traversable = new HashSet<Coordinate>();
             
-            for (int x = 0; x < texture.Width; x++)
+            for (int x = 0; x < colors.GetLength(0); x++)
             {
-                for (int y = 0; y < texture.Height; y++)
+                for (int y = 0; y < colors.GetLength(1); y++)
                 {
-                    if (this.blackList.Contains(texture.GetPixel(x, y)))
+                    if (this.blackList.Contains(colors[x, y]))
                     {
                         continue;
                     }

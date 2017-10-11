@@ -2,11 +2,15 @@
 
 namespace Core.Image.Magick
 {
+    /// <summary>
+    /// Class responsible for getting Colours using ImageMagick
+    /// </summary>
     public class ColourExtractor : IColorExtractor
     {
-        public Color[,] FromFile(string filename)
+        /// <inheritdoc/>
+        public Color[,] FromImage(string path)
         {
-            MagickImage image = new MagickImage(filename);
+            MagickImage image = new MagickImage(path);
             IPixelCollection pixels = image.GetPixels();
 
             Color[,] colors = new Color[image.Width,image.Height];

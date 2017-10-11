@@ -27,8 +27,6 @@ namespace Core.Image.Magick
             };
             
 
-            
-            
             Gradient gradient = new Gradient(colors);
             
             
