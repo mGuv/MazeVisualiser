@@ -11,19 +11,22 @@ namespace Core.Image.Magick
             int pixelsPerFrame = (int) System.Math.Ceiling((double)(expandedOrder.Length / totalFrames));
 
             
-            List<byte[]> colors = new List<byte[]>();
-            colors.Add(new byte[3]{255, 0, 0});
-            colors.Add(new byte[3]{255, 127, 0});
-            colors.Add(new byte[3]{255, 255, 0});
-            colors.Add(new byte[3]{127, 255, 0});
-            colors.Add(new byte[3]{0, 255, 0});
-            colors.Add(new byte[3]{0, 255, 127});
-            colors.Add(new byte[3]{0, 255, 255});
-            colors.Add(new byte[3]{0, 127, 255});
-            colors.Add(new byte[3]{0, 0, 255});
-            colors.Add(new byte[3]{127, 0, 255});
-            colors.Add(new byte[3]{255, 0, 255});
-            colors.Add(new byte[3]{255, 0, 127});
+            Color[] colors = {
+                new Color(255, 0, 0),
+                new Color(255, 127, 0),
+                new Color(255, 255, 0),
+                new Color(127, 255, 0),
+                new Color(0, 255, 0),
+                new Color(0, 255, 127),
+                new Color(0, 255, 255),
+                new Color(0, 127, 255),
+                new Color(0, 0, 255),
+                new Color(127, 0, 255),
+                new Color(255, 0, 255),
+                new Color(255, 0, 127) 
+            };
+            
+
             
             
             Gradient gradient = new Gradient(colors);
@@ -43,7 +46,10 @@ namespace Core.Image.Magick
                     {
                         break;
                     }
-                    pixels.SetPixel(expandedOrder[pixelIndex].X, expandedOrder[pixelIndex].Y, gradient.Tween((float) pixelIndex / expandedOrder.Length));
+
+                    Color color = gradient.Tween((float) pixelIndex / expandedOrder.Length);
+                    byte[] pixel = {color.R, color.G, color.B};
+                    pixels.SetPixel(expandedOrder[pixelIndex].X, expandedOrder[pixelIndex].Y, pixel);
                     pixelIndex++;
                 }
                 source.Write("frame" + i + ".png");
