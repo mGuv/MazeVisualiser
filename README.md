@@ -11,10 +11,9 @@ Currently very hacked together as I've worked on it for 2 hours and was lazy wit
 - Build the Project
 - dotnet Release\Core.dll pathToImage.png
 
-It'll then output the order of pixels it expanded to the command window.
+It'll generate a mess of .pngs in the folder you run it from and then an output.gif
 
 ## Direction
-- Comment everything
 - Massively tidy up the image output code
 - Tidy up the images created as currently it leaves behind a trail of images on disk
 - Make it run in isolated folders to avoid file name collision with successive runs
