@@ -8,12 +8,12 @@
         /// <summary>
         /// The X coordinate of the position
         /// </summary>
-        public int X;
+        public readonly int X;
         
         /// <summary>
         /// The Y coordinate of the position
         /// </summary>
-        public int Y;
+        public readonly int Y;
 
         /// <summary>
         /// Creates a new Coordinate with the given positions
@@ -24,6 +24,33 @@
         {
             this.X = x;
             this.Y = y;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.X + (this.Y << 16);
+        }
+
+        /// <summary>
+        /// Checks if the given Coordinate matches this Coordinate
+        /// </summary>
+        /// <param name="other">The Coordinate to compare against</param>
+        /// <returns>True if they are the same, false otherwise</returns>
+        public bool Equals(Coordinate other)
+        {
+            return this.X == other.X && this.Y == other.Y;
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is Coordinate coordinate)
+            {
+                return this.Equals(coordinate);
+            }
+
+            return false;
         }
     }
 }
