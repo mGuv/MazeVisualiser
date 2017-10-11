@@ -12,23 +12,29 @@ namespace Core.Image
         /// The list of Colors to tween between
         /// </summary>
         private readonly Color[] colors;
-        
+
         /// <summary>
         /// The ratio between 0-1 and the number of Colours
         /// </summary>
         private readonly float ratio;
-        
+
+        /// <summary>
+        /// Creates a new Gradient from the given Colours
+        /// </summary>
+        /// <param name="colors">The range of Colours to tween between</param>
+        /// <exception cref="Exception">Exception thrown when an invalid array of Colours is passed to 
+        /// constructor</exception>
         public Gradient(Color[] colors)
         {
             if (colors.Length <= 1)
             {
                 throw new Exception("Cannot create Gradient with fewer than 2 Colours");
             }
-            
+
             this.colors = colors;
             this.ratio = (float) 1 / (colors.Length - 1);
         }
-        
+
         /// <summary>
         /// Gets a Colour based on the tweening percentage (0-1).
         /// Value wraps around to the beginning if a value greater than 1 is supplied
@@ -39,7 +45,7 @@ namespace Core.Image
         {
             // Wrap it around to 0-1
             percentage %= 1;
-            
+
             // Figure out what Colours are being tweened between
             int index = (int) System.Math.Floor(percentage / ratio);
             int upperIndex = index + 1;
@@ -53,7 +59,7 @@ namespace Core.Image
             byte R = (byte) (colors[index].R + ((colors[upperIndex].R - colors[index].R) * scalar));
             byte G = (byte) (colors[index].G + ((colors[upperIndex].G - colors[index].G) * scalar));
             byte B = (byte) (colors[index].B + ((colors[upperIndex].B - colors[index].B) * scalar));
-            
+
             // Return as colour
             return new Color(R, G, B);
         }
