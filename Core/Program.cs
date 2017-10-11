@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Core.Image;
 using Core.Image.Magick;
-using Core.Solving;
 
 namespace Core
 {
@@ -25,8 +24,9 @@ namespace Core
             
             MapFactory factory = new MapFactory(new ColourExtractor(), blackList, neighbours);
             
-            Solver solver = new Solver();
-            Coordinate[] output = solver.Expand(factory.Create(inputFile), new Coordinate(0, 0));
+            
+            ISolver solver = new Solving.Dijkstra.Solver();
+            Coordinate[] output = solver.GetExpandOrder(factory.Create(inputFile), new Coordinate(0, 0), new Coordinate(0, 0));
 
             Visualiser visualiser = new Visualiser();
             string outputGif = visualiser.CreateGif(inputFile, output, 10, 10);
