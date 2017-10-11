@@ -5,7 +5,6 @@ namespace Core.Solving
     /// <summary>
     /// Stack-style class that automatically orders elements as they are inserted from lowest to highest.
     /// </summary>
-    /// <typeparam name="T">Type of element stored in the heap.</typeparam>
     public class Heap
     {
         /// <summary>
