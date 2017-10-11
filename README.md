@@ -1,17 +1,22 @@
 # MazeVisualiser
 Project for taking an Image and outputting visualisations of its structure based off old Unity code I wrote.
 
-Currently very hacked together as I've worked on it for 2 hours and was lazy with comments (as in, I didn't write any)
-
 ## Requirements
 - Dot Net Core 2.0
-- Annoyingly, Windows (As ImageMagick's Dotnet Core version only runs on Windows...)
+- Annoyingly, Windows (As ImageMagick's Dotnet Core version only runs on Windows currently)
 
 ## Usage
-- Build the Project
-- dotnet Release\Core.dll pathToImage.png
+- Install .Net Core 2.0
+- Checkout the project
+- Build the project in your IDE/process of choice
+- Run: dotnet outputPath\Core.dll somePath\image.png
 
 It'll generate a mess of .pngs in the folder you run it from and then an output.gif
+
+## Note
+- It's hard coded to use a Rainbow Gradient at the moment
+- It's hard coded to start from the very top left pixel
+- It's hard coded to only detect EXACTLY black pixels as walls
 
 ## Direction
 - Massively tidy up the image output code
