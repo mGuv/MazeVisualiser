@@ -10,13 +10,14 @@ Project for taking an Image and outputting visualisations of its structure based
 - Checkout the project
 - Build the project in your IDE/process of choice
 - Run: dotnet outputPath\Core.dll somePath\image.png
+-- You can optionally add '-a=astar' to change the algorithm to A*, if not specified it defaults to Dijkstra
 
 It'll generate a mess of .pngs in the folder you run it from and then an output.gif
 
 ## Note
 - It's hard coded to use a Rainbow Gradient at the moment
 - It's hard coded to start from the very top left pixel
-- It's hard coded to only detect EXACTLY black pixels as walls
+- It's hard coded to only detect EXACTLY black pixels as wall
 
 ## Direction
 - Massively tidy up the image output code
@@ -25,6 +26,5 @@ It'll generate a mess of .pngs in the folder you run it from and then an output.
 - Wire in .Net Core's DI
 - Allow customisable start locations
 - Allow customisable colour gradients
-- Allow different path finding (currently hard coding to Dijkstra's)
 - Unit tests
 
