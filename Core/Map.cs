@@ -10,12 +10,12 @@ namespace Core
         /// <summary>
         /// The internal set of what exact Coordinates are traversable
         /// </summary>
-        private HashSet<Coordinate> traversable;
+        private readonly HashSet<Coordinate> traversable;
         
         /// <summary>
         /// The set of Coordinate offsets that can be reached from any given Coordinate
         /// </summary>
-        private Coordinate[] neighbours;
+        private readonly Coordinate[] neighbours;
         
         /// <summary>
         /// Creates a new map with the given data

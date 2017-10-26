@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Core.Solving.AStar
+﻿namespace Core.Solving.AStar
 {
     /// <summary>
     /// Cost calculations for pathfinding using A*

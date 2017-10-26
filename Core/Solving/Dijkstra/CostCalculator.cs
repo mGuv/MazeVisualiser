@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Core.Solving.Dijkstra
+﻿namespace Core.Solving.Dijkstra
 {
     /// <summary>
     /// Cost calculations for pathfinding using Dijkstra's algorithm
