@@ -19,7 +19,6 @@ namespace Core
                 {
                     if (arg.Substring(arg.IndexOf(algo) + algo.Length) == "astar")
                     {
-                        Solving.AStar.CostCalculator test = new Solving.AStar.CostCalculator();
                         algorithm = new Solving.AStar.CostCalculator();
                     }
                 }
