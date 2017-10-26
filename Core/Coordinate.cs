@@ -52,5 +52,18 @@
 
             return false;
         }
+
+        /// <summary>
+        /// Gets the Squared Distance to another coordinate
+        /// </summary>
+        /// <param name="to">The other Coordinate to get the Distance to</param>
+        /// <returns>The Square Distance between coordinates</returns>
+        public int SquareDistance(Coordinate to)
+        {
+            int xDiff = to.X - this.X;
+            int yDiff = to.Y - this.Y;
+
+            return (xDiff * xDiff) + (yDiff * yDiff);
+        }
     }
 }

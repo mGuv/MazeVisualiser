@@ -13,17 +13,17 @@
         /// <summary>
         /// The total cost of expanding this node
         /// </summary>
-        public readonly int TotalCost;
+        public readonly float TotalCost;
 
         /// <summary>
         /// The cost to reach this node from the start
         /// </summary>
-        public readonly int PathCost;
+        public readonly float PathCost;
 
         /// <summary>
         /// The estimated cost to reach the goal from this Node
         /// </summary>
-        public readonly int HeuristicCost;
+        public readonly float HeuristicCost;
 
         /// <summary>
         /// The node that was expanded to reach this Node
@@ -37,7 +37,7 @@
         /// <param name="pathCost">The cost along the path to reach this Node</param>
         /// <param name="heuristicCost">The estimated cost to the goal from this Node</param>
         /// <param name="previousNode">The Node that was expanded to reach this Node</param>
-        public Node(Coordinate location, int pathCost, int heuristicCost, Node previousNode)
+        public Node(Coordinate location, float pathCost, float heuristicCost, Node previousNode)
         {
             this.Location = location;
             this.PathCost = pathCost;
