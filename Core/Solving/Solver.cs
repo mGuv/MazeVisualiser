@@ -10,7 +10,7 @@ namespace Core.Solving
         /// <summary>
         /// The cost calculation to use for ordering the expand order
         /// </summary>
-        private ICostCalculator costCalulator;
+        private readonly ICostCalculator costCalulator;
 
         /// <summary>
         /// Creates a new Solver with the given dependencies

@@ -9,17 +9,17 @@
         /// <summary>
         /// Value of the amount of Red in the Colour
         /// </summary>
-        public byte R;
+        public readonly byte R;
         
         /// <summary>
         /// Value of the amount of Green in the Colour
         /// </summary>
-        public byte G;
+        public readonly byte G;
         
         /// <summary>
         /// Value of the amount of Blue in the Colour
         /// </summary>
-        public byte B;
+        public readonly byte B;
 
         /// <summary>
         /// Create a new Colour with the given values

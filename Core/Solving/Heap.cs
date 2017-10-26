@@ -10,7 +10,7 @@ namespace Core.Solving
         /// <summary>
         /// Raw structure of the heap itself,
         /// </summary>
-        private Node[] _heap = new Node[4];
+        private Node[] heap = new Node[4];
         /// <summary>
         /// The number of elements currently in the Heap,
         /// </summary>
@@ -26,11 +26,11 @@ namespace Core.Solving
         private void Resize()
         {
             // Just double the array length for ease
-            Node[] resized = new Node[_heap.Length * 2];
+            Node[] resized = new Node[heap.Length * 2];
             // Copy current heap in to new array
-            Array.Copy(_heap, 0, resized, 0, _heap.Length);
+            Array.Copy(heap, 0, resized, 0, heap.Length);
             // Assign new array
-            _heap = resized;
+            heap = resized;
         }
 
         /// <summary>
@@ -45,12 +45,12 @@ namespace Core.Solving
                 int parentIndex = (childIndex - 1) / 2;
 
                 // check if it needs swapping
-                if(_heap[childIndex].TotalCost < _heap[parentIndex].TotalCost)
+                if(heap[childIndex].TotalCost < heap[parentIndex].TotalCost)
                 {
                     // Swap
-                    Node tempParent = _heap[parentIndex];
-                    _heap[parentIndex] = _heap[childIndex];
-                    _heap[childIndex] = tempParent;
+                    Node tempParent = heap[parentIndex];
+                    heap[parentIndex] = heap[childIndex];
+                    heap[childIndex] = tempParent;
                     // Propogate upwards
                     HeapUp(parentIndex);
                 }
@@ -69,13 +69,13 @@ namespace Core.Solving
             int largestIndex = parentIndex;
 
             // Check if it needs reordering compared to the left
-            if(leftChildIndex < Count && _heap[leftChildIndex].TotalCost < _heap[largestIndex].TotalCost)
+            if(leftChildIndex < Count && heap[leftChildIndex].TotalCost < heap[largestIndex].TotalCost)
             {
                 largestIndex = leftChildIndex;
             }
 
             // Check if it needs reordering to the right
-            if(rightChildIndex < Count && _heap[rightChildIndex].TotalCost < _heap[largestIndex].TotalCost)
+            if(rightChildIndex < Count && heap[rightChildIndex].TotalCost < heap[largestIndex].TotalCost)
             {
                 largestIndex = rightChildIndex;
             }
@@ -84,9 +84,9 @@ namespace Core.Solving
             if(largestIndex != parentIndex)
             {
                 // Reorder
-                Node tempParent = _heap[parentIndex];
-                _heap[parentIndex] = _heap[largestIndex];
-                _heap[largestIndex] = tempParent;
+                Node tempParent = heap[parentIndex];
+                heap[parentIndex] = heap[largestIndex];
+                heap[largestIndex] = tempParent;
                 // Propogate node downwards
                 HeapDown(largestIndex);
             }
@@ -99,13 +99,13 @@ namespace Core.Solving
         public void Insert(Node element)
         {
             // If the heap is already full we need to resize it
-            if (Count == _heap.Length)
+            if (Count == heap.Length)
             {
                 Resize();
             }
 
             // Add the element at the end of the heap
-            _heap[Count] = element;
+            heap[Count] = element;
             // Propogate the element upwards
             HeapUp(Count);
             Count++;
@@ -118,10 +118,10 @@ namespace Core.Solving
         public Node Pop()
         {
             // Get lowest element
-            Node toReturn = _heap[0];
+            Node toReturn = heap[0];
             Count--;
             // Swap the end node and first node
-            _heap[0] = _heap[Count];
+            heap[0] = heap[Count];
             // Find the end node's new position
             HeapDown(0);
             return toReturn;
@@ -133,7 +133,7 @@ namespace Core.Solving
         public void Clear()
         {
             // Clear indexs but keep size as if it grew once before, it will most likely be used again
-            Array.Clear(_heap, 0, _heap.Length);
+            Array.Clear(heap, 0, heap.Length);
             // Reset count to zero
             Count = 0;
         }
