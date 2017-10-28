@@ -37,7 +37,7 @@ namespace Core.Image.Magick
             int pixelIndex = 0;
             for (int i = 1; i <= totalFrames; i++)
             {
-                for (int p = 0; p < pixelsPerFrame; p++)
+                for (int p = 0; p <= pixelsPerFrame; p++)
                 {
                     if (pixelIndex >= expandedOrder.Length)
                     {
